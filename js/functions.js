@@ -1,8 +1,9 @@
 const isShorter = (string, size) => string.length <= size;
 
 const isPalindrom = (sentence) => {
-  const original = sentence;
   sentence.replaceAll(' ', '').toUpperCase();
+  const original = sentence;
+  sentence.split('').reverse().join();
 return sentence == original;
 }
 
