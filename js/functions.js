@@ -4,13 +4,13 @@ const isPalindrom = (sentence) => {
   sentence.replaceAll(' ', '').toUpperCase();
   const original = sentence;
   sentence.split('').reverse().join();
-  if (sentence == original){
+  if (sentence === original){
     return true;
   }
   else{
     return false;
   }
-}
+};
 
 const findNumber = (line) => {
   let result = '';
@@ -23,8 +23,8 @@ const findNumber = (line) => {
     }
   }
   return parseInt(result, 10);
-}
+};
 
 isPalindrom('топор');
-isShorter('Hello', 5)
-findNumber('s!2')
+isShorter('Hello', 5);
+findNumber('s!2');
