@@ -1,4 +1,7 @@
-import {getRandomNumberFromInterval, shuffle} from './utils.js';
+const getRandomNumberFromInterval = (start, end) =>
+  Math.ceil(Math.random() * (end - start + 1)) + (start - 1);
+
+const shuffle = (array) => array.sort(() => Math.random() - 0.5);
 
 const MESSAGES = [
   'Всё отлично!',
@@ -62,7 +65,7 @@ const getPhotoData = (_, id) => ({
   )}, {getComment}),
 });
 
-import {COUNT_PHOTOS} from './consts.js';
+const COUNT_PHOTOS = 25;
 export const getPhotos = (countPhotos) => Array.from({length: countPhotos}, getPhotoData);
 
 getPhotos(COUNT_PHOTOS);
