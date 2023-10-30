@@ -69,3 +69,4 @@ const COUNT_PHOTOS = 25;
 export const getPhotos = (countPhotos) => Array.from({length: countPhotos}, getPhotoData);
 
 getPhotos(COUNT_PHOTOS);
+
