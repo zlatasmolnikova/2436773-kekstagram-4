@@ -29,15 +29,13 @@ isPalindrom('топор');
 isShorter('Hello', 5);
 findNumber('s!2');
 
-
-
 const timeToMinutes = (time) => {
   const timeParts = time.split(':');
   const hours = parseInt(timeParts[0], 10);
   const minutes = parseInt(timeParts[1], 10);
 
   return hours * 60 + minutes;
-}
+};
 
 const meetingTime = (startWorkingTime, endWorkingTime, startMeetingTime, meetingDuration) => {
   startWorkingTime = timeToMinutes(startWorkingTime);
