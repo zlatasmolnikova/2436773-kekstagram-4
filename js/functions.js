@@ -29,6 +29,8 @@ isPalindrom('топор');
 isShorter('Hello', 5);
 findNumber('s!2');
 
+
+
 const timeToMinutes = (time) => {
   const timeParts = time.split(':');
   const hours = parseInt(timeParts[0], 10);
@@ -37,7 +39,7 @@ const timeToMinutes = (time) => {
   return hours * 60 + minutes;
 }
 
-const meetingTime = (startWorkingTime, endWorkingTime, meetingDuration) => {
+const meetingTime = (startWorkingTime, endWorkingTime, startMeetingTime, meetingDuration) => {
   startWorkingTime = timeToMinutes(startWorkingTime);
   endWorkingTime = timeToMinutes(endWorkingTime);
   startMeetingTime = timeToMinutes(startMeetingTime);
