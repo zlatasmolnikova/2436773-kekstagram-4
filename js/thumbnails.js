@@ -13,6 +13,6 @@ export const generateThumbnails = (pictures) => {
     pictureElement.querySelector('.picture__comments').textContent = comments.length;
 
     similarFragment.appendChild(pictureElement);
-    });
+  });
   picturesList.appendChild(similarFragment);
 };
