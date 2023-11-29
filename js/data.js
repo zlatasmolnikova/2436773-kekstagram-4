@@ -59,7 +59,7 @@ const getPhotoData = (_, id) => ({
   )}, {getComment}),
 });
 
-import {COUNT_PHOTOS} from './consts.js';
+
 export const getPhotos = (countPhotos) => Array.from({length: countPhotos}, getPhotoData);
 
-getPhotos(COUNT_PHOTOS);
+//getPhotos(COUNT_PHOTOS);

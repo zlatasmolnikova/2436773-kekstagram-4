@@ -1,5 +1,17 @@
+import {renderThumbnail} from './view-popup.js';
 const picturesContainer = document.querySelector('#picture').content;
 const picturesList = document.querySelector('.pictures');
+
+const photos = null;
+
+const onPicturesContainerClick = (evt) => {
+  const targetElement = evt.target.closest('.picture');
+  if (targetElement) {
+    const id = targetElement.dataset.pictureId;
+    const [thumbnail] = photos.filter((picture) => picture.id === +id);
+    renderThumbnail(thumbnail);
+  }
+};
 
 const similarFragment = document.createDocumentFragment();
 
@@ -15,4 +27,5 @@ export const generateThumbnails = (pictures) => {
     similarFragment.appendChild(pictureElement);
   });
   picturesList.appendChild(similarFragment);
+  picturesList.addEventListener('click', onPicturesContainerClick);
 };
