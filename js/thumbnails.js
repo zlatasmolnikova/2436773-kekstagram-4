@@ -1,4 +1,4 @@
-import {renderThumbnail} from './view-popup.js';
+import {openViewPopup} from './view-popup.js';
 const picturesContainer = document.querySelector('#picture').content;
 const picturesList = document.querySelector('.pictures');
 
@@ -9,13 +9,13 @@ const onPicturesContainerClick = (evt) => {
   if (targetElement) {
     const id = targetElement.dataset.pictureId;
     const [thumbnail] = photos.filter((picture) => picture.id === +id);
-    renderThumbnail(thumbnail);
+    openViewPopup(thumbnail);
   }
 };
 
 const similarFragment = document.createDocumentFragment();
 
-export const generateThumbnails = (pictures) => {
+export const renderThumbnails = (pictures) => {
   pictures.forEach(({url, description, likes, comments}) => {
     const pictureElement = picturesContainer.cloneNode(true);
 

@@ -2,23 +2,23 @@ const isEscapeKey = (evt) => evt.key === 'Escape';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCloseCross = bigPicture.querySelector('.big-picture__cancel');
 
-const onDocumentClose = () => {
-  closeThumbnail();
+const onBigPictureCloseCrossClick = () => {
+  closeViewPopup();
 };
 
-const onBigThumbnailKeydown = (evt) => {
+const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    onDocumentClose();
+    onBigPictureCloseCrossClick();
   }
 };
 
-function closeThumbnail(){
+function closeViewPopup(){
   document.querySelector('.body').classList.remove('modal-open');
   bigPicture.classList.add('.hidden');
 
-  document.removeEventListener('keydown', onBigThumbnailKeydown);
-  bigPictureCloseCross.removeEventListener('click', onDocumentClose);
+  document.removeEventListener('keydown', onDocumentKeydown);
+  bigPictureCloseCross.removeEventListener('click', onBigPictureCloseCrossClick);
 }
 
 const getCommentTemplate = ({avatar, name, message}) => `
@@ -46,7 +46,7 @@ const renderComments = (pictureById) => {
   bigPicture.querySelector('.social__comments').insertAdjacentHTML('afterbegin', pictureById.comments.map((comment) => getCommentTemplate(comment)));
 };
 
-export const renderThumbnail = (pictureById) => {
+export const openViewPopup = (pictureById) => {
   renderMainData(pictureById);
   renderComments(pictureById);
 
@@ -55,6 +55,6 @@ export const renderThumbnail = (pictureById) => {
   bigPicture.querySelector('.comments-loader').classList.add('hidden');
   document.querySelector('.body').classList.add('modal-open');
 
-  document.addEventListener('keydown', onBigThumbnailKeydown);
-  bigPictureCloseCross.addEventListener('click', onDocumentClose);
+  document.addEventListener('keydown', onDocumentKeydown);
+  bigPictureCloseCross.addEventListener('click', onBigPictureCloseCrossClick);
 };
