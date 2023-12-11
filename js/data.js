@@ -35,17 +35,16 @@ export const getComment = (_, id) => ({
 export const getPhotoData = (_, id) => ({
   id: id + 1,
   url: `photos/${id}.jpg`,
-  likes: `img/avatar-${getRandomNumberFromInterval(
+  likes: getRandomNumberFromInterval(
     LikesCount.MIN,
-    LikesCount.MAX
-  )}.svg`,
+    LikesCount.MAX),
   message: shuffle(MESSAGES).slice(0, getRandomNumberFromInterval(MessagesCount.MIN,
     MessagesCount.MAX)),
   description: DESCRIPTIONS[getRandomNumberFromInterval(0, DESCRIPTIONS.length - 1)],
   comments: Array.from({length: getRandomNumberFromInterval(
     CommentsCount.MIN,
     CommentsCount.MAX
-  )}, {getComment}),
+  )}, (getComment)),
 });
 
 export const getPhotos = (countPhotos) => Array.from({length: countPhotos}, getPhotoData);

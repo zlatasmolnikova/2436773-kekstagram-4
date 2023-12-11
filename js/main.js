@@ -1,6 +1,6 @@
 import {renderThumbnails } from './thumbnails.js';
-import { getPhotoArray } from './utils.js';
+import { getPhotos } from './data.js';
 import { COUNT_PHOTOS } from './consts.js';
-export const pictures = getPhotoArray(COUNT_PHOTOS);
+export const pictures = getPhotos(COUNT_PHOTOS);
 
 renderThumbnails(pictures);
