@@ -24,7 +24,7 @@ const generateComments = () =>{
 };
 
 export const getPhotoArray = () =>{
-  for (let i = 1; i <= COUNT_PHOTOS; i++) {
+  for (let i = 0; i <= COUNT_PHOTOS; i++) {
     const photo = {
       id: i,
       url: `photos/${i}.jpg`,

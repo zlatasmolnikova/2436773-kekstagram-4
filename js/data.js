@@ -22,7 +22,7 @@ const AvatarId = {
 };
 
 export const getComment = (_, id) => ({
-  id,
+  id: id + 1,
   avatar: `img/avatar-${getRandomNumberFromInterval(
     AvatarId.MIN,
     AvatarId.MAX
@@ -33,7 +33,7 @@ export const getComment = (_, id) => ({
 });
 
 export const getPhotoData = (_, id) => ({
-  id,
+  id: id + 1,
   url: `photos/${id}.jpg`,
   likes: `img/avatar-${getRandomNumberFromInterval(
     LikesCount.MIN,

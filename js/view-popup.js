@@ -49,7 +49,7 @@ const renderComments = (comments) => {
   bigPicture.querySelector('.social__comments').insertAdjacentHTML('afterbegin', comments.map((comment) => getCommentTemplate(comment)));
 };
 
-export const openViewPopup = (evt, url, description, likes, comments) => {
+export const openViewPopup = (url, description, likes, comments) => {
   renderMainData(url, description, likes, comments);
   renderComments(comments);
 
