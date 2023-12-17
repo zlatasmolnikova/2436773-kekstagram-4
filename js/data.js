@@ -1,5 +1,5 @@
 import {getRandomNumberFromInterval, shuffle} from './utils.js';
-import { MESSAGES, NAMES, DESCRIPTIONS, COUNT_PHOTOS } from './consts.js';
+import { MESSAGES, NAMES, DESCRIPTIONS } from './consts.js';
 
 const CommentsCount = {
   MIN: 0,
@@ -33,7 +33,7 @@ export const getComment = (_, id) => ({
 });
 
 export const getPhotoData = (_, id) => {
-  id = id+ 1;
+  id = id + 1;
   const photo = {
     id,
     url: `photos/${id}.jpg`,
@@ -52,4 +52,4 @@ export const getPhotoData = (_, id) => {
   return photo;
 };
 
-export const getPhotos = () => Array.from({length: COUNT_PHOTOS}, getPhotoData);
+export const getPhotos = (COUNT_PHOTOS) => Array.from({length: COUNT_PHOTOS}, getPhotoData);

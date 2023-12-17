@@ -1,4 +1,4 @@
-import {openViewPopup} from './view-popup.js';
+import { openViewPopup } from './view-popup.js';
 
 const picturesContainer = document.querySelector('#picture').content.querySelector('.picture');
 const picturesList = document.querySelector('.pictures');
@@ -17,13 +17,13 @@ export const renderThumbnails = (data) => {
   pictures = data.slice();
   const similarFragment = document.createDocumentFragment();
 
-  pictures.forEach( (picture) => {
+  pictures.forEach( ({ id, url, description, likes, comments }) => {
     const pictureElement = picturesContainer.cloneNode(true);
-    pictureElement.dataset.pictureId = picture.id;
-    pictureElement.querySelector('.picture__img').src = picture.url;
-    pictureElement.querySelector('.picture__img').alt = picture.description;
-    pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-    pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
+    pictureElement.dataset.pictureId = id;
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__img').alt = description;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
+    pictureElement.querySelector('.picture__comments').textContent = comments.length;
     similarFragment.appendChild(pictureElement);
   });
 

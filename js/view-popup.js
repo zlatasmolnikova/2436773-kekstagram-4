@@ -1,11 +1,10 @@
+const STEP_COMMENTS = 5;
 const isEscapeKey = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCloseCross = bigPicture.querySelector('.big-picture__cancel');
 const commentsCount = bigPicture.querySelector('.social__comment-count');
 const loadButton = bigPicture.querySelector('.comments-loader');
 let comments = null;
-
-const STEP_COMMENTS = 5;
 let commentsCounter = STEP_COMMENTS;
 
 const onBigPictureCloseCrossClick = () => {
@@ -20,21 +19,21 @@ const onDocumentKeydown = (evt) => {
 };
 
 function closeViewPopup (){
-  document.querySelector('body').classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
   bigPicture.classList.add('hidden');
   loadButton.classList.remove('hidden');
   bigPictureCloseCross.removeEventListener('click',onBigPictureCloseCrossClick);
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
-const getCommentTemplate = (comment) => `
+const getCommentTemplate = ({avatar, name, message}) => `
     <li class="social__comment">
         <img
             class="social__picture"
-            src="${comment.avatar}"
-            alt="${comment.name}"
+            src="${avatar}"
+            alt="${name}"
             width="35" height="35">
-        <p class="social__text">${comment.message.join(' ')}</p>
+        <p class="social__text">${message.join(' ')}</p>
     </li>
 `;
 
@@ -45,9 +44,9 @@ const renderComments = () => {
 };
 
 const renderCommentsCount = () => {
-  const commentsCounterDiv = `${commentsCounter} из <span class="comments-count">${comments.length}</span> комментариев`;
+  const commentsCounterTemplate = `${commentsCounter} из <span class="comments-count">${comments.length}</span> комментариев`;
   commentsCount.innerHTML = '';
-  commentsCount.insertAdjacentHTML('afterbegin', commentsCounterDiv);
+  commentsCount.insertAdjacentHTML('afterbegin', commentsCounterTemplate);
 };
 
 const onLoadButtonClick = () => {
@@ -85,7 +84,7 @@ export const openViewPopup = (picture) => {
 
   bigPicture.classList.remove('hidden');
   commentsCount.classList.add('hidden');
-  document.querySelector('body').classList.add('modal-open');
+  document.body.classList.add('modal-open');
 
   document.addEventListener('keydown', onDocumentKeydown);
   bigPictureCloseCross.addEventListener('click', onBigPictureCloseCrossClick);
