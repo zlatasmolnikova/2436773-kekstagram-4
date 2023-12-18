@@ -52,4 +52,4 @@ export const getPhotoData = (_, id) => {
   return photo;
 };
 
-export const getPhotos = (COUNT_PHOTOS) => Array.from({length: COUNT_PHOTOS}, getPhotoData);
+export const getPhotos = (countPhotos) => Array.from({length: countPhotos}, getPhotoData);
