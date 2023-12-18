@@ -1,4 +1,5 @@
 import { MAX_HASHTAGS_COUNT, MAX_DESCRIPTION_LENGTH } from './consts.js';
+import { closeViewPopup } from './view-popup.js';
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadInput = uploadForm.querySelector('.img-upload__input');
 const imageOverlay = uploadForm.querySelector('.img-upload__overlay.hidden');
