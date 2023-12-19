@@ -18,7 +18,7 @@ const onDocumentKeydown = (evt) => {
   }
 };
 
-function closeViewPopup (){
+export function closeViewPopup (){
   document.body.classList.remove('modal-open');
   bigPicture.classList.add('hidden');
   loadButton.classList.remove('hidden');
