@@ -1,5 +1,7 @@
 import { MAX_HASHTAGS_COUNT, MAX_DESCRIPTION_LENGTH } from './consts.js';
 import { closeViewPopup } from './view-popup.js';
+import {resetEffect, initEffect} from './effects.js';
+import {resetScale} from './scale.js';
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadInput = uploadForm.querySelector('.img-upload__input');
 const imageOverlay = uploadForm.querySelector('.img-upload__overlay.hidden');
@@ -89,6 +91,8 @@ function closeOverlay(){
   uploadInput.value = null;
   hashtagsField.textContent = '';
   descriptionField.textContent = '';
+  resetEffect();
+  resetScale();
 }
 
 function openOverlay() {
@@ -97,6 +101,7 @@ function openOverlay() {
   closeBtn.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', onDocumentKeydown);
   uploadInput.removeEventListener('click', openOverlay);
+  initEffect();
 }
 
 uploadInput.addEventListener('change', openOverlay);
